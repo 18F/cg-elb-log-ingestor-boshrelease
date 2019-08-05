@@ -4,6 +4,36 @@ name: elb_log_ingestor
 templates:
   ctl.erb: bin/ctl
 
-packages: []
+packages:
+  - elb_log_ingestor
 
-properties: {}
+properties:
+  port:
+    description: The port the healtcheck listens on
+    default: 8080
+  bucket:
+    description: the bucket to look for logs in
+  search_prefix:
+    description: the prefix under which to look for log files
+    default: logs/
+  working_prefix:
+    description: the prefix to hold logs while they are being processed
+    default: logs-working/
+  done_prefix:
+    description: the prefix to hold logs when after they have been processed
+    default: logs-done/
+  start_queue_size:
+    description: Number of log files to download at startup
+    default: 5
+  listen_host:
+    description: The interface on which to listen
+    default: localhost
+  elasticsearch_hosts:
+    description: Elasticsearch hosts to send logs to
+    
+| `ELB_INGESTOR_DONE_PREFIX`         | Prefix to put log files that have been ingested into   | "logs-done/"    |
+| `ELB_INGESTOR_START_QUEUE_SIZE`    | Number of log files to pull into queue at startup      | 5               |
+| `ELB_INGESTOR_LISTEN_HOST`         | Hostname or IP address to listen on for healthchecks   | "localhost"     |
+| `ELB_INGESTOR_LISTEN_PORT`         | Port to listen on for healthchecks                     | 13131           |
+| `ELB_INGESTOR_ELASTICSEARCH_HOSTS` | Comma-separated list of hosts (`host1:443,host2:9123`) | No default      |
+|                                    |                                                        |                 |k  
