@@ -1,0 +1,5 @@
+check process elb_log_ingestor
+  with pidfile /var/vcap/sys/run/elb_log_ingestor/pid
+  start program "/var/vcap/jobs/elb_log_ingestor/bin/ctl start"
+  stop program "/var/vcap/jobs/elb_log_ingestor/bin/ctl stop"
+  group vcap

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e -x
+
+tar xvzf python3/Python-3.7.4.tgz
+pushd Python-3.7.4
+	./configure --prefix=${BOSH_INSTALL_TARGET}
+	
+	make
+	make install
+popd
