@@ -1,0 +1,39 @@
+#!/bin/bash
+
+RUN_DIR=/var/vcap/sys/run/elb_log_ingestor
+LOG_DIR=/var/vcap/sys/log/elb_log_ingestor
+PIDFILE=${RUN_DIR}/pid
+
+case $1 in
+  start)
+      mkdir -p $RUN_DIR $LOG_DIR
+      chown -R vcap:vcap $RUN_DIR $LOG_DIR
+
+      echo $$ > $PIDFILE
+
+      cd /var/vcap/packages/elb_log_ingestor
+
+      exec venv/bin/elb_log_ingestor \
+        >> ${LOG_DIR}/elb_log_ingestor.stdout.log \
+        2>> ${LOG_DIR}/elb_log_ingestor.stderr.log
+      ;;
+
+  stop)
+    pkill -F ${PIDFILE}
+
+    counter=0
+    while [[ counter -le 30 ]]; do
+      pgrep -F ${PIDFILE} || break
+      sleep 1
+      ((counter++))
+    if pgrep -F ${PIDFILE}; then
+      pkill -9 -F ${PIDFILE}
+    fi
+    rm ${PIDFILE}
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+esac
+
