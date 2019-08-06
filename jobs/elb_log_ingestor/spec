@@ -30,10 +30,3 @@ properties:
     default: localhost
   elasticsearch_hosts:
     description: Elasticsearch hosts to send logs to
-    
-| `ELB_INGESTOR_DONE_PREFIX`         | Prefix to put log files that have been ingested into   | "logs-done/"    |
-| `ELB_INGESTOR_START_QUEUE_SIZE`    | Number of log files to pull into queue at startup      | 5               |
-| `ELB_INGESTOR_LISTEN_HOST`         | Hostname or IP address to listen on for healthchecks   | "localhost"     |
-| `ELB_INGESTOR_LISTEN_PORT`         | Port to listen on for healthchecks                     | 13131           |
-| `ELB_INGESTOR_ELASTICSEARCH_HOSTS` | Comma-separated list of hosts (`host1:443,host2:9123`) | No default      |
-|                                    |                                                        |                 |k  
