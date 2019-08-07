@@ -5,14 +5,14 @@ LOG_DIR=/var/vcap/sys/log/elb_log_ingestor
 PIDFILE=${RUN_DIR}/pid
 
 
-export ELB_INGESTOR_BUCKET=<%= p(bucket) %>
-export ELB_INGESTOR_SEARCH_PREFIX=<%= p(search_prefix) %>
-export ELB_INGESTOR_WORKING_PREFIX=<%= p(working_prefix) %>
-export ELB_INGESTOR_DONE_PREFIX=<%= p(done_prefix) %>
-export ELB_INGESTOR_START_QUEUE_SIZE=<%= p(start_queue_size) %>
-export ELB_INGESTOR_LISTEN_HOST=<%= p(listen_host) %>
-export ELB_INGESTOR_LISTEN_PORT=<%= p(port) %>
-export ELB_INGESTOR_ELASTICSEARCH_HOSTS=<%= p(elasticsearch_hosts) %>
+export ELB_INGESTOR_BUCKET=<%= p('bucket') %>
+export ELB_INGESTOR_SEARCH_PREFIX=<%= p('search_prefix') %>
+export ELB_INGESTOR_WORKING_PREFIX=<%= p('working_prefix') %>
+export ELB_INGESTOR_DONE_PREFIX=<%= p('done_prefix') %>
+export ELB_INGESTOR_START_QUEUE_SIZE=<%= p('start_queue_size') %>
+export ELB_INGESTOR_LISTEN_HOST=<%= p('listen_host') %>
+export ELB_INGESTOR_LISTEN_PORT=<%= p('port') %>
+export ELB_INGESTOR_ELASTICSEARCH_HOSTS=<%= p('elasticsearch_hosts') %>
 
 case $1 in
   start)
