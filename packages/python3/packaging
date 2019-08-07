@@ -2,7 +2,8 @@
 
 set -e -x
 
-tar xvzf python3/Python-3.7.4.tgz
+apt install -y libffi-dev
+tar xzf Python-3.7.4.tgz
 pushd Python-3.7.4
 	./configure --prefix=${BOSH_INSTALL_TARGET}
 	
