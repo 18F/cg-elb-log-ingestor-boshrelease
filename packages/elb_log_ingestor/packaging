@@ -1,7 +1,6 @@
 set -e -x
-
 VENV_ROOT=${BOSH_INSTALL_TARGET}/elb_log_ingestor
-${BOSH_INSTALL_TARGET}/python3 -m venv ${VENV_ROOT}
+/var/vcap/packages/python3/bin/python3 -m venv ${VENV_ROOT}
 pushd elb_log_ingestor
     ${VENV_ROOT}/bin/python setup.py install
 popd
