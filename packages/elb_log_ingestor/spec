@@ -1,7 +1,8 @@
 ---
 name: elb_log_ingestor
 
-dependencies: python3
+dependencies:
+  - python3
 
 files:
   - elb_log_ingestor/**/*
