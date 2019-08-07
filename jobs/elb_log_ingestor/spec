@@ -6,6 +6,7 @@ templates:
 
 packages:
   - elb_log_ingestor
+  - python3
 
 properties:
   port:
