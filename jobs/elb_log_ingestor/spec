@@ -9,25 +9,34 @@ packages:
   - python3
 
 properties:
-  port:
-    description: The port the healtcheck listens on
-    default: 8080
-  bucket:
+  env.ELB_INGESTOR_BUCKET:
     description: the bucket to look for logs in
-  search_prefix:
+  env.ELB_INGESTOR_SEARCH_PREFIX:
     description: the prefix under which to look for log files
     default: logs/
-  working_prefix:
+  env.ELB_INGESTOR_WORKING_PREFIX:
     description: the prefix to hold logs while they are being processed
     default: logs-working/
-  done_prefix:
+  env.ELB_INGESTOR_DONE_PREFIX:
     description: the prefix to hold logs when after they have been processed
     default: logs-done/
-  start_queue_size:
+  env.ELB_INGESTOR_START_QUEUE_SIZE:
     description: Number of log files to download at startup
     default: 5
-  listen_host:
+  env.ELB_INGESTOR_LISTEN_HOST:
     description: The interface on which to listen
     default: localhost
-  elasticsearch_hosts:
-    description: Elasticsearch hosts to send logs to
+  env.ELB_INGESTOR_LISTEN_PORT:
+    description: The port the healtcheck listens on
+    default: 8080
+  env.ELB_INGESTOR_ELASTICSEARCH_HOSTS:
+    description: Elasticsearch hosts to send logs to (ex. "192.168.5.7:9300,es.example.com:9123")
+  env.ELB_INGESTOR_INDEX_PATTERN:
+    description: The index pattern to upload logs to
+    default: logs-platform-%{+YYYY.MM.dd}
+  env.AWS_ACCESS_KEY_ID:
+    description: access key id for reading from the bucket
+  env.AWS_SECRET_ACCESS_KEY:
+    description: access key for reading from the bucket
+  env.AWS_DEFAULT_REGION:
+    description: aws region to access
