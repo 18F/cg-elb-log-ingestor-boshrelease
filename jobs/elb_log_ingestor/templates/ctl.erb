@@ -36,6 +36,7 @@ case $1 in
       pgrep -F ${PIDFILE} || break
       sleep 1
       ((counter++))
+    done
     if pgrep -F ${PIDFILE}; then
       pkill -9 -F ${PIDFILE}
     fi
