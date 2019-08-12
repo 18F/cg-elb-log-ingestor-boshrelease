@@ -5,7 +5,7 @@ LOG_DIR=/var/vcap/sys/log/elb_log_ingestor
 PIDFILE=${RUN_DIR}/pid
 
 <% p('env').each do |key, value| %>
-export <%= key %>=<% value %>
+export <%= key %>=<%= value %>
 <% end %>
 
 case $1 in
