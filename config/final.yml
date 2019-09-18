@@ -1,1 +1,7 @@
-name: cg-elb-log-ingestor-boshrelease
+---
+blobstore:
+  provider: s3
+  options:
+    bucket_name: cloud-gov-release-blobstore
+    region: us-gov-west-1
+final_name: elb-log-ingestor
