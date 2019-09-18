@@ -1,0 +1,21 @@
+name: elb-log-ingestor
+version: "1"
+commit_hash: 5b77e10
+uncommitted_changes: false
+jobs:
+- name: elb_log_ingestor
+  version: eba46bbefa8396c3fbe151aeeabc9f3ea76c8f53
+  fingerprint: eba46bbefa8396c3fbe151aeeabc9f3ea76c8f53
+  sha1: ca634f5dc923ece572e7e13181c04abeff1a4299
+packages:
+- name: elb_log_ingestor
+  version: ac6f52ff1f99f6c2de5768229b295db5e81817eb
+  fingerprint: ac6f52ff1f99f6c2de5768229b295db5e81817eb
+  sha1: 113136126aa3c5a5c348f8f9f30e216544b1531a
+  dependencies:
+  - python3
+- name: python3
+  version: 09c10010e1696f0f15dcc7ca0411d06e5fc8ace7
+  fingerprint: 09c10010e1696f0f15dcc7ca0411d06e5fc8ace7
+  sha1: 460333285dddb0d0c099806d8d475a74f8812c22
+  dependencies: []
