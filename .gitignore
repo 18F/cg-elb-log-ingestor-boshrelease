@@ -14,3 +14,5 @@ releases/**/*.tgz
 #*
 .vscode
 manifest-dev.yml  
+tmp
+
